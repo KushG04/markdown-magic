@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% if css_content %}
+    <style>
+        {{ css_content | safe }}
+    </style>
+    {% endif %}
+</head>
+<body>  
+    <h1>{{ title }}</h1>
+    <h2>table of contents</h2>
+    <ul>
+    {% for item in toc %}
+        <li><a href="#{{ item.anchor }}">{{ item.title }}</a></li>
+    {% endfor %}
+    </ul>
+    {{ html_content | safe }}
+</body>
+</html>
